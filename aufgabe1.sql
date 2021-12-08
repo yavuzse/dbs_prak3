@@ -1,5 +1,5 @@
 CREATE FUNCTION regeln() RETURNS TRIGGER AS
-$emp_stamp$
+$$
 declare
     average      numeric(8, 2);
     person_count int;
@@ -31,7 +31,7 @@ begin
 
     return new;
 end ;
-$emp_stamp$ LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER regel BEFORE INSERT OR UPDATE ON person FOR EACH ROW EXECUTE PROCEDURE regeln();
 
